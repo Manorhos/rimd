@@ -86,7 +86,7 @@ impl fmt::Display for SMFFormat {
 }
 
 /// An event can be either a midi message or a meta event
-#[derive(Debug,Clone)]
+#[derive(Debug,Clone,PartialEq,Eq,Hash)]
 pub enum Event {
     Midi(MidiMessage),
     Meta(MetaEvent),
@@ -116,7 +116,7 @@ impl Event {
 }
 
 /// An event occuring in the track.
-#[derive(Debug)]
+#[derive(Clone,Debug,PartialEq,Eq,Hash)]
 pub struct TrackEvent {
     /// A delta offset, indicating how many ticks after the previous
     /// event this event occurs

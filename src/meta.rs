@@ -52,7 +52,7 @@ impl fmt::Display for MetaError {
 
 /// Commands that meta messages can represent
 enum_from_primitive! {
-#[derive(Clone,Copy,Debug,PartialEq,Eq,PartialOrd,Ord)]
+#[derive(Clone,Copy,Debug,PartialEq,Eq,PartialOrd,Ord,Hash)]
 pub enum MetaCommand {
     SequenceNumber = 0x00,
     TextEvent = 0x01,
@@ -77,7 +77,7 @@ pub enum MetaCommand {
 /// Meta event building and parsing.  See
 /// http://cs.fit.edu/~ryan/cse4051/projects/midi/midi.html#meta_event
 /// for a description of the various meta events and their formats
-#[derive(Debug)]
+#[derive(Debug,PartialEq,Eq,Hash)]
 pub struct MetaEvent {
     pub command: MetaCommand,
     pub length: u64,

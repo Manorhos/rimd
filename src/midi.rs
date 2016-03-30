@@ -81,7 +81,7 @@ pub enum Status {
 /// Midi message building and parsing.  See
 /// http://www.midi.org/techspecs/midimessages.php for a description
 /// of the various Midi messages that exist.
-#[derive(Debug)]
+#[derive(Debug,PartialEq,Eq,Hash)]
 pub struct MidiMessage {
     pub data: Vec<u8>,
 }
